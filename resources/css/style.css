@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background: url('/public/img/wallper/colorFondo.png'), lightgray 50% / cover no-repeat;;
+}
+
+.contenedor {
+    position: relative;
+    width: 50%;
+    min-width: 180vh;
+    min-height: 828px;
+    max-width: 180vh;
+    max-height: 828px;
+    flex-shrink: 0;
+    border-radius: 50px;
+    background: url('/public/img/wallper/fondoP.jpg'), lightgray 50% / cover no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 2%;
+
+    -webkit-box-shadow: 0px 10px 13px 3px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 10px 13px 3px rgba(0,0,0,0.75);
+    box-shadow: 0px 10px 13px 3px rgba(0,0,0,0.75);
+}

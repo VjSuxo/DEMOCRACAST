@@ -1,0 +1,47 @@
+.contenedor{
+    overflow-y: auto;
+}
+.tarjetas{
+    margin: 25px;
+}
+.card{
+    border-radius: 25px;
+    max-width: 250px;
+    min-width: 250px;
+}
+.card img{
+    border-radius: 10px;
+}
+
+.card-number {
+    font-size: 72px; /* Ajusta el tamaño según tus necesidades */
+    color: #000; /* Ajusta el color del número */
+    margin-bottom: 20px; /* Ajusta el margen inferior según tus necesidades */
+}
+
+.card .numero {
+    background-color: #5C092E;
+    border-radius: 10px;
+    width: 40px;
+    height: 100px;
+    position: absolute;
+    top: -3px;
+    left: 10px;
+    font-size: 60px; /* Ajusta el tamaño del número según tus necesidades */
+    color: white; /* Ajusta el color del número según tus necesidades */
+    z-index: 1; /* Asegura que esté sobre la imagen */
+}
+
+/* Estilo del scrollbar en WebKit */
+::-webkit-scrollbar {
+    width: 12px; /* Ancho del scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #5C092E; /* Color del thumb (la parte que puedes arrastrar) */
+    border-radius: 6px; /* Radio de borde del thumb */
+}
+
+::-webkit-scrollbar-track {
+    background-color: #EAEAEA; /* Color del track (la parte donde no puedes arrastrar) */
+}
