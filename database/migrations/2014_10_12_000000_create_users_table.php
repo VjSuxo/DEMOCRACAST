@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->foreignId('persona_id')->nullable()->constrained('personas');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             //0 = User, 1 = Controlador, 2 = Admin

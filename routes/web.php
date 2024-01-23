@@ -2,7 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminEleccionController;
+use App\Http\Controllers\AdminCandidatoController;
 use App\Http\Controllers\enlaceVotacionController;
+use App\Http\Controllers\VotacionController;
+use App\Models\EleccionCandidato;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,10 +22,15 @@ use App\Http\Controllers\enlaceVotacionController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('inicio');
 
 Route::controller(enlaceVotacionController::class)->group(function(){
-    Route::get('/elecciones','index')->name('elecciones');
+    Route::get('/listaElecciones','indexLista')->name('listaElecciones');
+    Route::get('/elecciones/{eleccion}','index')->name('elecciones');
+});
+
+Route::controller(VotacionController::class)->group(function(){
+    Route::get('/elegirAlcandidato/{eleccion}/{persona}','votarCandidato')->name('elegirA');
 });
 
 
@@ -38,5 +48,23 @@ Route::middleware(['auth','user-role:editor'])->group(function()
 // Route Admin
 Route::middleware(['auth','user-role:admin'])->group(function()
 {
-    Route::get("/admin/home",[HomeController::class, 'adminHome'])->name("admin.home");
+    Route::controller(AdminController::class)->group(function(){
+        Route::get("/admin/home",'adminHome')->name("admin.home");
+        Route::get("/admin/gestion/Elecciones",'adminElecciones')->name("admin.gElecciones");
+        Route::get("/admin/gestion/Usuarios",'adminUsuarios')->name("admin.gUsuarios");
+        Route::get("/admin/gestion/Candidatos/{eleccion}",'adminGCandidatos')->name("admin.gCandidatos");
+    });
+
+    Route::controller(AdminEleccionController::class)->group(function(){
+        Route::get("/admin/gestion/Elecciones/crear",'index')->name("admin.crearElecciones");
+        Route::get("/admin/gestion/Elecciones/editar/{eleccion}",'indexEdit')->name("admin.editarElecciones");
+        Route::post("/admin/gestion/Elecciones/btnCrear",'store')->name("admin.crearElecciones.Store");
+
+    });
+    Route::controller(AdminCandidatoController::class)->group(function(){
+        Route::post("/admin/gestion/Elecciones/crear/{eleccion}",'store')->name("admin.storeCandidato");
+
+    });
+
+
 });

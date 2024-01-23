@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Persona extends Model
 {
-    use HasFactory;
+    protected $table = 'personas';
 
     /**
      * The attributes that are mass assignable.
@@ -27,8 +27,12 @@ class Persona extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function candidato()
+     /**
+     * Get the elections that the candidate belongs to.
+     */
+    public function elecciones()
     {
-        return $this->belongsTo(Candidato::class);
+        return $this->belongsToMany(Eleccion::class, 'eleccion_candidato')
+            ->withPivot('nroCartelera'); // Agrega esto para obtener el nroCartelera
     }
 }

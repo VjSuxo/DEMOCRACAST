@@ -7,14 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Eleccion extends Model
 {
-    use HasFactory;
-
+    protected $table = 'elecciones';
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
     protected $fillable = [
+        'id',
         'nombreEle',
         'fechaInicio',
         'fechaFin',
@@ -35,9 +35,9 @@ class Eleccion extends Model
      */
     public function candidatos()
     {
-        return $this->belongsToMany(Candidato::class, 'eleccion_candidato');
+        return $this->belongsToMany(Persona::class, 'eleccion_candidato')
+            ->withPivot('nroCartelera'); // Agrega esto para obtener el nroCartelera
     }
-
     /**
      * Get the votes that belong to the election.
      */

@@ -9,7 +9,7 @@ body{
 
 .contenedor {
     position: relative;
-    width: 50%;
+
     min-width: 180vh;
     min-height: 828px;
     max-width: 180vh;

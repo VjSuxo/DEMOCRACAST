@@ -15,8 +15,10 @@ class CreateEleccionCandidatoTable extends Migration
     {
         Schema::create('eleccion_candidato', function (Blueprint $table) {
             $table->id();
+            $table->integer('nroCartelera')->nullable();
+            $table->integer('cantVotos')->default(0)->nullable();
             $table->foreignId('eleccion_id')->constrained('elecciones');
-            $table->foreignId('candidato_id')->constrained('candidatos');
+            $table->foreignId('persona_id')->constrained('personas');
             $table->timestamps();
         });
     }

@@ -1,0 +1,88 @@
+.superior{
+    position: absolute;
+    top: 10px;
+    left: 50;
+    display: flex;
+    flex-direction: column;
+}
+
+.botonesO{
+    position: absolute;
+    top: 100px;
+    left: 50;
+    display: flex;
+    flex-direction: column;
+}
+
+.superior h1{
+    color: white;
+}
+
+.contenido{
+    position: absolute;
+    top: 240px;
+    left: 50;
+    display: flex;
+    flex-direction: column;
+    min-width: 1600px;
+}
+
+.table{
+    color: white;
+}
+
+.fondoCreacion {
+    width: 1669px;
+    height: 690px;
+    flex-shrink: 0;
+    background: rgba(0, 31, 63, 0.48);
+    display: flex;
+}
+
+.fElecciones {
+    /* Añade estilos adicionales según tus necesidades */
+    margin-right: 20px; /* Ajusta según sea necesario */
+    margin-left: 25px;
+    margin-top: 20px;
+    color: white; /* Color de texto para .fElecciones */
+    min-width: 700px;
+}
+
+.formulario {
+    /* Puedes agregar estilos adicionales para el formulario */
+}
+
+.rayaVertical {
+    margin-top: 10px;
+    width: 5px;
+    height: 662px;
+    background: white;
+}
+
+.llenadoCandidatos {
+    /* Puedes agregar estilos adicionales para .llenadoCandidatos */
+    margin-top: 25px;
+    margin-left: 25px;
+}
+
+.rayaVertical,
+.llenadoCandidatos {
+    /* Establece un ancho mínimo para .rayaVertical y .llenadoCandidatos */
+    min-width: 5px;
+}
+
+.candidato{
+    margin-top: 20px;
+    max-height: 600px; /* Ajusta según sea necesario */
+    max-width: 880px;
+    overflow-y: auto; /* Agrega una barra de desplazamiento vertical si es necesario */
+
+}
+
+.card {
+    width: 190px;
+}
+
+.candidato .card{
+
+}

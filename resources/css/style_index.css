@@ -39,6 +39,19 @@
     line-height: normal;
     margin-top: 5px;
     margin-left: 25px;
-
 }
+
+.titulo h2 {
+    position: absolute;
+    top: 50px;
+    right: -900px; /* Cambiado de "right" a "left" */
+    color: #FFF;
+    font-family: Inter;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-top: 5px;
+}
+
 

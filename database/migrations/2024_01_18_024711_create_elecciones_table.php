@@ -17,7 +17,7 @@ class CreateEleccionesTable extends Migration
             $table->id();
             $table->string('nombreEle');
             $table->date('fechaInicio');
-            $table->date('fechaFin');
+            $table->date('fechaFin')->nullable();
             $table->string('estado');
             $table->text('descripcion');
             $table->timestamps();

@@ -13,7 +13,16 @@
             <a class="nav-link {{ Request::is('listaElecciones') ? 'active' : '' }}" href="{{ route("listaElecciones") }}">Elecciones</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Tutorial</a>
+            <a class="nav-link" href="">Tutorial</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {{ Request::is('admin.home') ? 'active' : '' }}" href="{{ route('admin.home') }}">Inicio Admin</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {{ Request::is('admin.gElecciones') ? 'active' : '' }}" href="{{ route('admin.gElecciones') }}">Gestion Elecciones</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {{ Request::is('admin.gUsuarios') ? 'active' : '' }}" href="{{ route('admin.gUsuarios') }}">Gestion Usuarios</a>
           </li>
 
         </ul>

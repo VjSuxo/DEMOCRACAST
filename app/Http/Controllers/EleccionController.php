@@ -7,38 +7,21 @@ use Illuminate\Http\Request;
 
 class EleccionController extends Controller
 {
-    public function index()
-    {
-        $elecciones = Eleccion::all();
-        return view('elecciones.index', compact('elecciones'));
-    }
-
-    public function create()
-    {
-        return view('elecciones.create');
-    }
-
-    public function store(Request $request)
+    public static function store(Request $request)
     {
         $request->validate([
             'nombreEle' => 'required|string|max:255',
             'fechaInicio' => 'required|date',
-            'fechaFin' => 'required|date|after:fechaInicio',
-            'estado' => 'required|in:activa,inactiva',
             'descripcion' => 'nullable|string',
-            // Otros campos de validación relacionados con Eleccion
         ]);
 
-        Eleccion::create([
+        $eleccion = Eleccion::create([
             'nombreEle' => $request->nombreEle,
             'fechaInicio' => $request->fechaInicio,
-            'fechaFin' => $request->fechaFin,
-            'estado' => $request->estado,
+            'estado' => 'activo',
             'descripcion' => $request->descripcion,
-            // Otros campos relacionados con Eleccion
         ]);
-
-        return redirect()->route('elecciones.index')->with('success', 'Eleccion creada exitosamente.');
+        return $eleccion;
     }
 
     public function edit(Eleccion $eleccion)

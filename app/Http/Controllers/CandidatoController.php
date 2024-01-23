@@ -18,7 +18,7 @@ class CandidatoController extends Controller
         return view('candidatos.create');
     }
 
-    public function store(Request $request)
+    public static function store(Request $request)
     {
         $request->validate([
             'persona_id' => 'required|exists:personas,id',
@@ -26,13 +26,13 @@ class CandidatoController extends Controller
             // Otros campos de validación relacionados con Candidato
         ]);
 
-        Candidato::create([
+        $candidato = Candidato::create([
             'persona_id' => $request->persona_id,
             'nroCartelera' => $request->nroCartelera,
             // Otros campos relacionados con Candidato
         ]);
 
-        return redirect()->route('candidatos.index')->with('success', 'Candidato creado exitosamente.');
+        return $candidato;
     }
 
     public function edit(Candidato $candidato)
