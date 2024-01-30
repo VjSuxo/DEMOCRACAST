@@ -24,17 +24,25 @@
           <li class="nav-item">
             <a class="nav-link {{ Request::is('admin.gUsuarios') ? 'active' : '' }}" href="{{ route('admin.gUsuarios') }}">Gestion Usuarios</a>
           </li>
-
         </ul>
+
 
         <div class="d-flex">
             <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
                 @if(auth()->check())
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        {{ auth()->user()->username }} <!-- Muestra el nombre del usuario autenticado -->
+                        {{ auth()->user()->name }} <!-- Muestra el nombre del usuario autenticado -->
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="userDropdown">
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                        @if (auth()->user()->role == 'admin')
+                        <li>
+                            <a class="dropdown-item" href="{{ route('admin.gElecciones') }}">Gestion Elecciones</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{{ route('admin.gUsuarios') }}">Gestion Usuarios</a>
+                        </li>
+                        @endif
                         <li>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
@@ -42,19 +50,23 @@
                                 {{ __('Logout') }}
                             </a>
                         </li>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
                     </ul>
+
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                        <button type="submit" style="display: none;"></button>
+                    </form>
+
                 </li>
                 @else
                 <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{{ route('login') }}">Iniciar Secion</a>
+                    <a class="nav-link active" aria-current="page" href="{{ route('login') }}">Iniciar Sesión</a>
                 </li>
                 @endif
             </ul>
-        <div>
+        </div>
+
       </div>
     </div>
-  </nav>
-
+</nav>

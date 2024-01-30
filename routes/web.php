@@ -60,10 +60,11 @@ Route::middleware(['auth','user-role:admin'])->group(function()
         Route::get("/admin/gestion/Elecciones/editar/{eleccion}",'indexEdit')->name("admin.editarElecciones");
         Route::post("/admin/gestion/Elecciones/btnCrear",'store')->name("admin.crearElecciones.Store");
 
+        Route::get("/admin/eleccions/{eleccion}/statss/",'')->name('admin.eleccion.estats');
+
     });
     Route::controller(AdminCandidatoController::class)->group(function(){
         Route::post("/admin/gestion/Elecciones/crear/{eleccion}",'store')->name("admin.storeCandidato");
-
     });
 
 
