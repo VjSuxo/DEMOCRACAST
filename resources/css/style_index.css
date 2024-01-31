@@ -10,7 +10,7 @@
 .titulo h1 {
     color: #FFF;
     font-family: Inter;
-    font-size: 96px;
+    font-size: 5vw;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -18,7 +18,7 @@
 }
 
 .titulo .barra {
-    width: 750px;
+    width: 40vw;
     height: 5px;
     background: #FFF;
     margin-top: -10px;
@@ -33,11 +33,11 @@
 .titulo p{
     color: #FFF;
     font-family: Inter;
-    font-size: 30px;
+    font-size: 2.5vw;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    margin-top: 5px;
+    margin-top: 9px;
     margin-left: 25px;
 }
 

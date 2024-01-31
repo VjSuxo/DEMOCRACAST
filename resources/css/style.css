@@ -10,11 +10,12 @@ body{
 .contenedor {
     position: relative;
 
-    min-width: 180vh;
-    min-height: 828px;
-    max-width: 180vh;
-    max-height: 828px;
-    flex-shrink: 0;
+    width: 90vw; /* Usa el 80% del ancho del viewport */
+
+    height: 80vh; /* Usa el 50% de la altura del viewport */
+
+
+
     border-radius: 50px;
     background: url('/public/img/wallper/fondoP.jpg'), lightgray 50% / cover no-repeat;
 
@@ -28,3 +29,5 @@ body{
     -moz-box-shadow: 0px 10px 13px 3px rgba(0,0,0,0.75);
     box-shadow: 0px 10px 13px 3px rgba(0,0,0,0.75);
 }
+
+

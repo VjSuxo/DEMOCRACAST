@@ -1,9 +1,26 @@
 .contenedor{
     overflow-y: auto;
 }
-.tarjetas{
+
+
+.tarjetas {
     margin: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+/* Ajustes adicionales para las tarjetas y el contenedor de filas */
+.row-cols-1 {
+    width: 100%; /* Ocupa el 100% del ancho del contenedor padre */
+}
+
+.row {
+    margin: 0; /* Elimina cualquier margen predeterminado de la clase .row */
+}
+
+
+
 .card{
     border-radius: 25px;
     max-width: 250px;
