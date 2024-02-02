@@ -18,7 +18,7 @@ class PersonaController extends Controller
         return view('personas.create');
     }
 
-    public function store(Request $request)
+    public static function store(Request $request)
     {
         $request->validate([
             'nombre' => 'required|string|max:255',
@@ -27,12 +27,13 @@ class PersonaController extends Controller
         ]);
 
         Persona::create([
+            'id'=>$request->id,
             'nombre' => $request->nombre,
             'apePaterno' => $request->apePaterno,
             'apeMaterno' => $request->apeMaterno,
+            'foto' => $request->foto,
         ]);
 
-        return redirect()->route('personas.index')->with('success', 'Persona creada exitosamente.');
     }
 
     public function edit(Persona $persona)

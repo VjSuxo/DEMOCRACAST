@@ -1,3 +1,16 @@
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ope {
+    margin-top: 60px;
+    margin-bottom: 10px;
+    display: flex;
+    gap: 10px; /* Espaciado entre los botones en línea */
+}
+
 .superior{
     position: absolute;
     top: 10px;
@@ -85,4 +98,53 @@
 
 .candidato .card{
 
+}
+
+/* TABLA */
+
+.table-responsive {
+    
+    width: 90%;
+    overflow-x: auto; /* Agrega desplazamiento horizontal si es necesario */
+}
+
+/* Estilo adicional para hacer que la tabla sea más responsiva */
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: white;
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}
+.table-responsive {
+    overflow-x: auto;
+    max-height: 300px; /* Ajusta la altura máxima según tus necesidades */
+}
+
+/* Personalización del scrollbar para navegadores basados en WebKit (Chrome, Safari) */
+.table-responsive::-webkit-scrollbar {
+    width: 10px; /* Ancho del scrollbar */
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+    background-color: #888; /* Color del thumb (barra deslizante) */
+}
+
+.table-responsive::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Color de la pista (fondo del scrollbar) */
+}
+
+/* Personalización del scrollbar para navegadores basados en Firefox */
+.table-responsive {
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f1f1f1; /* Color del thumb y de la pista respectivamente */
+}
+
+.form-control {
+    min-width: 100px;
 }

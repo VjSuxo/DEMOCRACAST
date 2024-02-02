@@ -43,8 +43,8 @@
 
 .titulo h2 {
     position: absolute;
-    top: 50px;
-    right: -900px; /* Cambiado de "right" a "left" */
+    top: 1vw;
+    right: -45vw; /* Cambiado de "right" a "left" */
     color: #FFF;
     font-family: Inter;
     font-size: 40px;
@@ -55,3 +55,19 @@
 }
 
 
+@media (max-width: 992px) {
+    .titulo h2 {
+        font-size: 3vw;
+        margin-top: 5px;
+        right: -40vw;  
+    }
+}
+
+/* Media query para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .titulo h2 {
+        font-size: 3vw;
+        margin-top: 110px;
+        right: 15vw;     
+    }
+}

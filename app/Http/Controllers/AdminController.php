@@ -19,7 +19,8 @@ class AdminController extends Controller
     }
 
     function adminUsuarios(){
-        return view("/admin/gestionUsuarios");
+        $personas = Persona::get();
+        return view("/admin/gestionUsuarios",['personas' => $personas]);
     }
 
     function adminGCandidatos(Eleccion $eleccion){

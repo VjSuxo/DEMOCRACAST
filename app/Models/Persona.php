@@ -14,9 +14,11 @@ class Persona extends Model
      * @var array<int, string>
      */
     protected $fillable = [
+        'id',
         'nombre',
         'apePaterno',
         'apeMaterno',
+        'foto',
     ];
 
     /**

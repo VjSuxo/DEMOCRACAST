@@ -18,6 +18,7 @@ class CreatePersonasTable extends Migration
             $table->string('nombre');
             $table->string('apePaterno');
             $table->string('apeMaterno');
+            $table->string('foto')->nullable();
             $table->timestamps();
         });
     }
