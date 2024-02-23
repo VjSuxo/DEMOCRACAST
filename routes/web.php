@@ -69,6 +69,7 @@ Route::middleware(['auth','user-role:admin'])->group(function()
     });
     Route::controller(AdminPersonaController::class)->group(function(){
         Route::post("/admin/gestion/usuaio/store",'store')->name("admin.storePersona");
+        Route::delete("/admin/gestion/usuario/delete/{persona}/delete12354875",'destroy')->name("admin.destroyPersona");
     });
 
 

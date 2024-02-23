@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Persona;
 use App\Models\Candidato;
 use App\Models\Eleccion;
+use App\Models\User;
 
 class AdminController extends Controller
 {
@@ -20,7 +21,8 @@ class AdminController extends Controller
 
     function adminUsuarios(){
         $personas = Persona::get();
-        return view("/admin/gestionUsuarios",['personas' => $personas]);
+        $usuario  = User::get();
+        return view("/admin/gestionUsuarios",['personas' => $personas,'usuarios' => $usuario]);
     }
 
     function adminGCandidatos(Eleccion $eleccion){

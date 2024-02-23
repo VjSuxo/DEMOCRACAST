@@ -18,23 +18,15 @@ class UserController extends Controller
         return view('users.create');
     }
 
-    public function store(Request $request)
+    public static function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|string|min:8',
-            'role' => 'required|in:user,controlador,admin',
-        ]);
-
         User::create([
+            'id' => $request->id,
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
             'role' => $request->role,
         ]);
-
-        return redirect()->route('users.index')->with('success', 'Usuario creado exitosamente.');
     }
 
     public function edit(User $user)
@@ -66,10 +58,9 @@ class UserController extends Controller
         return redirect()->route('users.index')->with('success', 'Usuario actualizado exitosamente.');
     }
 
-    public function destroy(User $user)
+    public static function destroy(User $user)
     {
         $user->delete();
-        return redirect()->route('users.index')->with('success', 'Usuario eliminado exitosamente.');
     }
 }
 

@@ -58,9 +58,8 @@ class PersonaController extends Controller
         return redirect()->route('personas.index')->with('success', 'Persona actualizada exitosamente.');
     }
 
-    public function destroy(Persona $persona)
+    public static function destroy(Persona $persona)
     {
         $persona->delete();
-        return redirect()->route('personas.index')->with('success', 'Persona eliminada exitosamente.');
     }
 }
