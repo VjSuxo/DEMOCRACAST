@@ -26,13 +26,25 @@ class PersonaController extends Controller
             'apeMaterno' => 'required|string|max:255',
         ]);
 
-        Persona::create([
-            'id'=>$request->id,
+        if($request->id){
+            $persona = Persona::create([
+                'id'=>$request->id,
+                'nombre' => $request->nombre,
+                'apePaterno' => $request->apePaterno,
+                'apeMaterno' => $request->apeMaterno,
+                'foto' => $request->foto,
+            ]);
+       }
+       else{
+        $persona = Persona::create([
             'nombre' => $request->nombre,
             'apePaterno' => $request->apePaterno,
             'apeMaterno' => $request->apeMaterno,
             'foto' => $request->foto,
         ]);
+       }
+
+        return $persona;
 
     }
 

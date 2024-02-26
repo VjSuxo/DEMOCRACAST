@@ -17,8 +17,7 @@ class Voto extends Model
     protected $fillable = [
         'user_id',
         'eleccion_id',
-        'opcion',
-        'hora',
+        'nroVotos',
         // Otros campos relacionados con Voto
     ];
 

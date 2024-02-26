@@ -164,7 +164,6 @@
                     <th scope="col">CI</th>
                     <th scope="col">NOMBRE USUARIO</th>
                     <th scope="col">CARGO</th>
-                    <th scope="col">DETALLES</th>
                     <th scope="col">ELIMINAR</th>
                 </tr>
             </thead>
@@ -174,19 +173,6 @@
                         <th scope="row">{{ $usuario->id }}</th>
                         <td>{{ $usuario->name }}</td>
                         <td>{{ $usuario->role }}</td>
-                        <td>
-                            <button type="button" class="btn btn-primary  show-user-details"
-                            data-bs-toggle="modal" data-bs-target="#datosModal"
-                            data-person="{{ json_encode([
-                                'id' => $usuario->id,
-                                'name' => $usuario->name,
-                                'email' => $usuario->email,
-                                'role' => $usuario->role,
-                                'contra' => $usuario->password,
-                            ]) }}">
-                                Ver
-                            </button>
-                        </td>
                         <td>
                             <form action="{{route('admin.destroyPersona',$usuario)}}" method="POST">
                                 @csrf

@@ -17,9 +17,9 @@ class CreateVotosTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained(); // Relación con User
             $table->foreignId('eleccion_id')->constrained('elecciones'); // Relación con Eleccion
-            $table->string('opcion');
-            $table->timestamp('hora');
+            $table->integer('nroVotos');
             // Otros campos relacionados con Voto
+            $table->boolean('tipoVoto');
             $table->timestamps();
         });
     }

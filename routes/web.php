@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminEleccionController;
 use App\Http\Controllers\AdminPersonaController;
 use App\Http\Controllers\AdminCandidatoController;
+use App\Http\Controllers\CandidatoController;
 use App\Http\Controllers\enlaceVotacionController;
 use App\Http\Controllers\VotacionController;
 use App\Models\EleccionCandidato;
@@ -66,6 +67,8 @@ Route::middleware(['auth','user-role:admin'])->group(function()
     });
     Route::controller(AdminCandidatoController::class)->group(function(){
         Route::post("/admin/gestion/Elecciones/crear/{eleccion}",'store')->name("admin.storeCandidato");
+        Route::post("/admin/gestion/Elecciones/crear/persona/{eleccion}",'storePersona')->name("admin.storeCPersona");
+        Route::delete("/admin/gestion/Elecciones/eliminar/persona/",'destroyCandidato')->name("admin.destroyCandidato");
     });
     Route::controller(AdminPersonaController::class)->group(function(){
         Route::post("/admin/gestion/usuaio/store",'store')->name("admin.storePersona");

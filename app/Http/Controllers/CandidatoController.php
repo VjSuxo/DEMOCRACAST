@@ -2,45 +2,47 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Candidato;
+use App\Models\Eleccion;
 use Illuminate\Http\Request;
 
 class CandidatoController extends Controller
 {
-    public function index()
-    {
-        $candidatos = Candidato::all();
-        return view('candidatos.index', compact('candidatos'));
-    }
-
     public function create()
     {
         return view('candidatos.create');
     }
 
-    public static function store(Request $request)
+    public static function store(Eleccion $eleccion, Request $request)
     {
-        $request->validate([
-            'persona_id' => 'required|exists:personas,id',
-            'nroCartelera' => 'required|integer',
-            // Otros campos de validación relacionados con Candidato
-        ]);
-
-        $candidato = Candidato::create([
-            'persona_id' => $request->persona_id,
-            'nroCartelera' => $request->nroCartelera,
-            // Otros campos relacionados con Candidato
-        ]);
-
-        return $candidato;
+       if($request->id){
+            $consulta = new Request([
+                'id' => $request->ci,
+                'nombre' => $request->nombre,
+                'apePaterno' => $request->ApPaterno,
+                'apeMaterno' => $request->ApMaterno,
+            ]);
+       }
+       else{
+            $consulta = new Request([
+                'nombre' => $request->nombre,
+                'apePaterno' => $request->ApPaterno,
+                'apeMaterno' => $request->ApMaterno,
+            ]);
+       }
+       $persona = PersonaController::store($consulta);
+       $consulta = new Request([
+            'idPersona' => $persona->id,
+       ]);
+       $candidatoC = new AdminCandidatoController();
+       $candidatoC->store($eleccion,$consulta);
     }
 
-    public function edit(Candidato $candidato)
+    public function edit()
     {
         return view('candidatos.edit', compact('candidato'));
     }
 
-    public function update(Request $request, Candidato $candidato)
+    public function update(Request $request, Request $candidato)
     {
         $request->validate([
             'persona_id' => 'required|exists:personas,id',
@@ -57,7 +59,7 @@ class CandidatoController extends Controller
         return redirect()->route('candidatos.index')->with('success', 'Candidato actualizado exitosamente.');
     }
 
-    public function destroy(Candidato $candidato)
+    public function destroy(Request $candidato)
     {
         $candidato->delete();
         return redirect()->route('candidatos.index')->with('success', 'Candidato eliminado exitosamente.');

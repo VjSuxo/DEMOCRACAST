@@ -23,6 +23,16 @@
                 @foreach ( $eleccion->candidatos as $candidato )
                 <div class="col">
                     <div class="card h-100">
+                        <span class="numero">
+                            {{ $candidato->pivot->nroCartelera }}
+                            <form method="POST" action="{{ route('admin.destroyCandidato' ) }}" enctype="multipart/form-data">
+                                @csrf
+                                @method('DELETE')
+                                <input type="text" name="eleccionId" id="eleccionId" value="{{ $candidato->pivot->eleccion_id }}" style="display: none">
+                                <input type="text" name="personaId" id="personaId" value="{{ $candidato->pivot->persona_id }}" style="display: none">
+                                <button type="submit">ELIMINAR</button>
+                            </form>
+                        </span>
                       <img src="/img/user/usuario.png" class="card-img-top" alt="...">
                       <div class="card-body">
                         <h5 class="card-title">{{ $candidato->nombre }}</h5>

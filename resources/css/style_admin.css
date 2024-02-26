@@ -45,11 +45,13 @@
 }
 
 .fondoCreacion {
-    width: 1669px;
-    height: 690px;
+    margin-top: 10px;
+    width: 170vh;
+    height: 68vh;
     flex-shrink: 0;
     background: rgba(0, 31, 63, 0.48);
     display: flex;
+    border-radius: 25px;
 }
 
 .fElecciones {
@@ -68,7 +70,7 @@
 .rayaVertical {
     margin-top: 10px;
     width: 5px;
-    height: 662px;
+    height: 65vh;
     background: white;
 }
 
@@ -103,7 +105,7 @@
 /* TABLA */
 
 .table-responsive {
-    
+
     width: 90%;
     overflow-x: auto; /* Agrega desplazamiento horizontal si es necesario */
 }
@@ -147,4 +149,8 @@
 
 .form-control {
     min-width: 100px;
+}
+
+.fElecciones .table-responsive{
+    margin-left: 15px;
 }

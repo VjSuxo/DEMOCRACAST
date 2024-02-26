@@ -54,6 +54,11 @@ class User extends Authenticatable
         return $this->hasOne(Persona::class);
     }
 
+    public function voto()
+    {
+        return $this->belongsTo(Voto::class);
+    }
+
     /**
      * @param  integer  $value
      * @return \Illuminate\Database\Eloquent\Casts\Attribute

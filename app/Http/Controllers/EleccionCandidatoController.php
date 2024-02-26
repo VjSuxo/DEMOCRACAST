@@ -22,9 +22,6 @@ class EleccionCandidatoController extends Controller
             'nroCartelera' => $request->nroCartelera,
         ]);
 
-        // Puedes agregar lógica adicional según tus necesidades
-
-        return $eleccionCandidato;
     }
 
     public static function update(Request $request, EleccionCandidato $eleccionCandidato)
