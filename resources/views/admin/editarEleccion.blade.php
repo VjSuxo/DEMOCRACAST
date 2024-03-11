@@ -7,12 +7,20 @@
 <div class="superior"><h1>MAKE ELECCIONES</h1></div>
 <div class="fondoCreacion">
     <div class="fElecciones formulario">
-        <form action="" method="POST" enctype="multipart/form-data">
-            @csrf
-            <h1>DATOS ELECCION</h1>
+        <h1>Eleccion</h1>
+        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+            <button type="button" class="btn btn-primary" id="btn">Primary</button>
+        </div>
 
-            <button type="submit" class="btn btn-secondary" {{ $errors->any() ? 'disabled' : '' }}>CREAR</button>
-        </form>
+        <div class="datos"  style="display: none">
+            datos
+        </div>
+        <div class="editDatos" style="display: none">
+            <input type="text" >
+        </div>
+        <div class="est"   style="display: none">
+            estadistiacs
+        </div>
 
     </div>
     <div class="rayaVertical"></div>
@@ -48,6 +56,14 @@
 </div>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
+<script>
+    $(document).ready(function(){
+    $('#btnData').click(function(){
+        $('.datos').show();
+    });
+});
+
+</script>
 
 </x-layouts.appAdmin>
 

@@ -19,7 +19,7 @@
             </div>
             <div class="input-group">
                 <span class="input-group-text">Descripcion</span>
-                <textarea class="form-control" aria-label="descripcion" id="descripcion" name="descripcion">{{ old('descripcion') }}</textarea>
+                <textarea class="form-control" aria-label="descripcion" id="descripcion" name="descripcion" value=" ">{{ old('descripcion') }}</textarea>
             </div>
             <button type="submit" class="btn btn-secondary">CREAR</button>
         </form>

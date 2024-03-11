@@ -12,7 +12,7 @@ class EleccionController extends Controller
         $request->validate([
             'nombreEle' => 'required|string|max:255',
             'fechaInicio' => 'required|date',
-            'descripcion' => 'nullable|string',
+            'descripcion' => 'required|string',
         ]);
 
         $eleccion = Eleccion::create([

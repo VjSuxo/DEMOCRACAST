@@ -34,7 +34,7 @@
                     <td class="">
                         <form method="POST" action="{{ route('admin.storeCandidato', $eleccion->id ) }}" enctype="multipart/form-data">
                             @csrf
-                            <input type="text" value="{{ $persona->id }}" style="display: none" id="storeCandidato" name="storeCandidato">
+                            <input type="text" value="{{ $persona->id }}" style="display: none" id="idPersona" name="idPersona">
                             <button type="submit" class="btn btn-primary">AGREGAR</button>
                         </form>
                     </td>
@@ -70,6 +70,9 @@
                 @endforeach
 
             </div>
+        </div>
+        <div class="candidatoF d-flex justify-content-center">
+            <a href="{{ route('admin.editarElecciones', $eleccion->id) }}" class="btn btn-primary ">FINALIZAR</a>
         </div>
     </div>
 </div>
