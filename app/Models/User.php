@@ -54,10 +54,11 @@ class User extends Authenticatable
         return $this->hasOne(Persona::class);
     }
 
-    public function voto()
+    public function votos()
     {
-        return $this->belongsTo(Voto::class);
+        return $this->hasMany(Voto::class);
     }
+
 
     /**
      * @param  integer  $value

@@ -60,7 +60,8 @@
     margin-left: 25px;
     margin-top: 20px;
     color: white; /* Color de texto para .fElecciones */
-    min-width: 700px;
+    max-width: 80vh;
+    min-width: 80vh;
 }
 
 .formulario {
@@ -158,3 +159,32 @@
 .fElecciones .table-responsive{
     margin-left: 15px;
 }
+
+hr {
+    height: 5px;
+    background-color: rgb(255, 255, 255);
+    border-color: rgb(255, 255, 255);
+  }
+
+  .item p {
+    display: inline-block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 18px;
+  }
+
+  .dataTipo{
+    text-align: left;
+    width: 75%;
+  }
+
+  .dataInf {
+    text-align: right;
+    width: 25%;
+  }
+
+  .est{
+    color: black;
+  }
+
+

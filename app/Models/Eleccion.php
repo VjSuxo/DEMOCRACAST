@@ -43,6 +43,6 @@ class Eleccion extends Model
      */
     public function votos()
     {
-        return $this->hasMany(Voto::class, 'eleccion_id');
+        return $this->hasManyThrough(Voto::class, EleccionCandidato::class);
     }
 }

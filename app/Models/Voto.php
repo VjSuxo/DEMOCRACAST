@@ -9,31 +9,26 @@ class Voto extends Model
 {
     use HasFactory;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
     protected $fillable = [
         'user_id',
         'eleccion_id',
+        'eleccion_candidato_id',
         'nroVotos',
-        // Otros campos relacionados con Voto
+        'tipoVoto',
     ];
 
-    /**
-     * Get the user that owns the vote.
-     */
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    /**
-     * Get the election that the vote belongs to.
-     */
     public function eleccion()
     {
         return $this->belongsTo(Eleccion::class);
+    }
+
+    public function candidato()
+    {
+        return $this->belongsTo(EleccionCandidato::class, 'eleccion_candidato_id');
     }
 }

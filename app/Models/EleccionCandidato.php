@@ -29,4 +29,10 @@ class EleccionCandidato extends Model
     {
         return $this->belongsTo(Persona::class);
     }
+
+    public function votos()
+    {
+        return $this->hasMany(Voto::class);
+    }
+
 }

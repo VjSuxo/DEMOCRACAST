@@ -18,7 +18,12 @@ class AdminEleccionController extends Controller
     function indexEdit(Eleccion $eleccion){
         $user = User::get();
         $candidato = Persona::get();
-        return view('/admin/editarEleccion',['users'=>$user,'candidatos'=>$candidato,'eleccion'=>$eleccion]);
+        $candidatos = $eleccion->candidatos;
+        $totalVotos = 0;
+        foreach ($candidatos as $candidato) {
+            $totalVotos += $candidato->cantVotos;
+        }
+        return view('/admin/editarEleccion',['users'=>$user, 'candidatos'=>$candidato, 'eleccion'=>$eleccion, 'totalVotos' => $totalVotos]);
     }
 
     function store(Request $request){
@@ -27,7 +32,9 @@ class AdminEleccionController extends Controller
         return redirect()->route('admin.editarElecciones', ['eleccion' => $eleccion->id]);
     }
 
-
+    function cantVotos(Eleccion $eleccion){
+        return view('/votosP',['eleccion' => $eleccion]);
+    }
 
 }
 
