@@ -4,6 +4,7 @@
 >
 @vite(['resources/css/style_voto.css',])
 <div class="contenedor">
+    @include('sweetalert::alert')
     <div class="tarjetas">
         <div class="row row-cols-1 row-cols-md-auto g-4" style="max-height: 700px; overflow-y: auto;">
 

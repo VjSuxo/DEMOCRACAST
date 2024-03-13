@@ -26,7 +26,7 @@ class VotacionController extends Controller
             $eleccion->refresh(); // Refresca la relación para obtener los cambios
             $eleccion->update(['cantVotos' => $eleccionC->cantVotos]);
 
-            Alert::success('Success Title', 'Success Message');
+            Alert::success('Gracias por participar', 'Voto registrado');
             return redirect()->route('elecciones', [$eleccion->id]);
         } else {
             Alert::error('Error Title', 'Candidato no encontrado.');

@@ -36,7 +36,8 @@ class Eleccion extends Model
     public function candidatos()
     {
         return $this->belongsToMany(Persona::class, 'eleccion_candidato')
-            ->withPivot('nroCartelera'); // Agrega esto para obtener el nroCartelera
+            ->withPivot('nroCartelera')
+            ->withPivot('cantVotos'); // Agrega esto para obtener el nroCartelera
     }
     /**
      * Get the votes that belong to the election.
