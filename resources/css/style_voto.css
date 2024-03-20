@@ -23,11 +23,15 @@
 
 .card{
     border-radius: 25px;
-    max-width: 250px;
-    min-width: 250px;
+    max-width: 30vh;
+    min-width: 30vh;
 }
 .card img{
     border-radius: 10px;
+    min-width: 20vh;
+    max-width: 20vh;
+    margin-top: 1vh;
+    margin-left: 5vh;
 }
 
 .card-number {
@@ -40,11 +44,11 @@
     background-color: #5C092E;
     border-radius: 10px;
     width: 40px;
-    height: 100px;
+    height: 10vh;
     position: absolute;
     top: -3px;
     left: 10px;
-    font-size: 60px; /* Ajusta el tamaño del número según tus necesidades */
+    font-size: 50px; /* Ajusta el tamaño del número según tus necesidades */
     color: white; /* Ajusta el color del número según tus necesidades */
     z-index: 1; /* Asegura que esté sobre la imagen */
 }
