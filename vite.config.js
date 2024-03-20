@@ -12,6 +12,7 @@ export default defineConfig({
                 'resources/css/style_indexAdmin.css',
                 'resources/css/style_admin.css',
                 'resources/css/style_voto.css',
+                'resources/css/style_estado.css',
                 'resources/js/Boostrap/bootstrap.bundle.min.js',
                 'resources/js/app.js',
             ],

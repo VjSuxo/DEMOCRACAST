@@ -2,50 +2,49 @@
     :title="'DC-ADMIN-ELECCIONES'"
     :metadescription="'Sistema DEMOCRACAST administrador'"
 >
-@vite(['resources/css/style_index.css','resources/css/style_admin.css',])
+@vite(['resources/css/style_index.css','resources/css/style_admin.css','resources/css/style_estado.css',])
 <div class="contenedor">
     <div class="superior"><h1>GESTION DE ELECCIONES</h1></div>
     <div class="botonesO">
         <a class="btn btn-primary" href="{{ route('admin.crearElecciones') }}">CREAR ELECCION</a>
     </div>
     <div class="contenido">
-        <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">ID</th>
-                <th scope="col">NOMBRE</th>
-                <th scope="col">ESTADO</th>
-                <th scope="col">DETALLE</th>
-                <th scope="col">ESTADISTICAS</th>
-                <th scope="col">EDITAR</th>
-              </tr>
-            </thead>
-            <tbody>
-                @foreach ( $elecciones as $eleccion )
-                <tr>
-                    <th scope="row">{{ $eleccion->id }}</th>
-                    <td>{{ $eleccion->nombreEle }}</td>
-                    <td>{{ $eleccion->estado }}</td>
-                    <td>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                            data-id="{{ $eleccion->id }}"
-                            data-nombre="{{ $eleccion->nombreEle }}"
-                            data-estado="{{ $eleccion->estado }}"
-                            data-descrip="{{ $eleccion->descripcion }}"
-                        >
-                            Ver
-                        </button>
-                      </td>
-                    <td><button type="button" class="btn btn-primary">Primary</button></td>
-                    <td><a class="btn btn-primary" href="{{ route('admin.editarElecciones',$eleccion->id) }}" >EDITAR</a></td>
-                </tr>
-              @endforeach
+        <div class="row row-cols-1 row-cols-md-auto g-4">
+            @foreach ( $elecciones as $eleccion )
+            <div class="col">
+                <div class=" shadow card border-success mb-3" style="width: 30vh;">
+                    <div class="card-header bg-transparent border-success d-flex justify-content-between align-items-center">
+                        <span class="me-auto">{{ $eleccion->nombreEle }}</span>
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle btn-sm" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-three-dots-vertical"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+                                <li><a class="dropdown-item" href="{{ route('admin.eleccion.estats', $eleccion) }}">Votos</a></li>
+                                <li><a class="dropdown-item" href="#">Elección</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-body text-success">
+                        <a class="btn btn-primary" href="{{ route('admin.editarElecciones',$eleccion->id) }}">Gestionar</a>
+                    </div>
+                    <div class="card-footer bg-transparent border-success">
+                        @if ($eleccion->estado == 'activo')
+                            <h5 class="punto-verde">activo</h5>
+                        @else
+                            <h5 class="punto-rojo">finalizado</h5>
+                        @endif
+                    </div>
 
-            </tbody>
-        </table>
+                  </div>
+              </div>
+            @endforeach
+        </div>
     </div>
 
 </div>
+
+
 
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

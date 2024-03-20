@@ -66,6 +66,6 @@ class User extends Authenticatable
      */
     public function getRoleAttribute($value)
     {
-        return ["user", "controlador", "admin"][$value];
+        return ["user", "controlador", "admin","computer"][$value];
     }
 }

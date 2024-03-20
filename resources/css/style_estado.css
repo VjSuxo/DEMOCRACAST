@@ -1,0 +1,15 @@
+.punto-verde::before {
+    content: "\2022"; /* Código Unicode del punto */
+    color: #28a745; /* Color verde */
+    margin-right: 5px; /* Espacio a la derecha del punto */
+    font-size: 1.5em;
+}
+
+.punto-rojo::before {
+    content: "\2022"; /* Código Unicode del punto */
+    color: #dc3545; /* Color rojo */
+    margin-right: 5px; /* Espacio a la derecha del punto */
+    font-size: 1.5em;
+}
+
+
