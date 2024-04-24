@@ -9,6 +9,7 @@
     <div class="fElecciones formulario">
         <h1>Eleccion</h1>
         <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+            <button type="button" class="btn btn-primary" id="btnMaquinas">Maquinas</button>
             <button type="button" class="btn btn-primary" id="btnDatos">Datos</button>
             <button type="button" class="btn btn-primary" id="btnEst">Estadisticas</button>
             <a type="button" href="{{ route('admin.eleccion.estats', $eleccion) }}" class="btn btn-primary" id="btnPant" style="display: none">Pantalla Completa</a>
@@ -52,6 +53,11 @@
                     </div>
                 </div>
             </div>
+            <div class="maquinas">
+                <h2>Maquinas</h2>
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Asignar Máquinas</button>
+
+            </div>
         </div>
 
     </div>
@@ -86,6 +92,35 @@
     </div>
 </div>
 </div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">ASIGNAR CANTIDAD DE MAQUINAS</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Contenido del modal -->
+                <!-- Puedes agregar aquí cualquier formulario o contenido que necesites -->
+                <form  action="{{'admin.eleccion.asingMac'}}" id="asignarForm" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="mb-3">
+                        <label for="cantidadMaquinas" class="form-label">Cantidad de Máquinas:</label>
+                        <input type="number" class="form-control" id="cantidadMaquinas" name="cantidadMaquinas" min="1">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" id="guardarMaquinas">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 <script>
@@ -95,12 +130,18 @@
         $('.est').hide(1000);
         $('#btnPant').hide(1000);
     });
+
     $('#btnEst').click(function(){
         $('.datos').hide(1000);
         $('#btnPant').show(1000);
         $('.est').show(1000);
     });
+
+
+
+
 });
+
 
 </script>
 

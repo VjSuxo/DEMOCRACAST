@@ -55,6 +55,7 @@ Route::middleware(['auth','user-role:admin'])->group(function()
         Route::get("/admin/gestion/Elecciones",'adminElecciones')->name("admin.gElecciones");
         Route::get("/admin/gestion/Usuarios",'adminUsuarios')->name("admin.gUsuarios");
         Route::get("/admin/gestion/Candidatos/{eleccion}",'adminGCandidatos')->name("admin.gCandidatos");
+
     });
 
     Route::controller(AdminEleccionController::class)->group(function(){
@@ -64,7 +65,7 @@ Route::middleware(['auth','user-role:admin'])->group(function()
 
         Route::get("/admin/eleccions/{eleccion}/statss/",'cantVotos')->name('admin.eleccion.estats');
 
-
+        Route::post("/admin/asignacionMaquinas/{eleccion}",'asingMac')->name('admin.eleccion.asingMac');
     });
     Route::controller(AdminCandidatoController::class)->group(function(){
         Route::post("/admin/gestion/Elecciones/crear/{eleccion}",'store')->name("admin.storeCandidato");
